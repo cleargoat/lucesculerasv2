@@ -1,0 +1,37 @@
+name: Compilar OceanLights
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Configurar Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.8'
+
+      - name: Compilar mod
+        run: gradle build --no-daemon
+
+      - name: Guardar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: oceanlights-forge-1.20.1
+          path: build/libs/*.jar
+          if-no-files-found: error
