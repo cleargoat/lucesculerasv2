@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="oceanlights"
+version="1.0.0"
+displayName="Ocean Lights"
+authors="ClearGoat (@BadEnding01)"
+credits="Hecho por ClearGoat (@BadEnding01)"
+description='''
+Luces estaticas de color con shader suave: cualquier armor stand con el tag Luz refleja una luz de color sobre el terreno y las entidades cercanas. Usa /oceanlights <color>.
+'''
+
+[[dependencies.oceanlights]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.oceanlights]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
